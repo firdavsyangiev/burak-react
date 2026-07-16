@@ -22,7 +22,7 @@ class Test extends React.Component {
 
   componentDidMount() {
     console.log("componentDidMount");
-    //runs after render
+    //runs after render => RETRIEVE DATA FROM BACKEND SERVER
   }
 
   componentWillUnmount() {
