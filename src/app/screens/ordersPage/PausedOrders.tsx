@@ -2,7 +2,6 @@ import React from "react";
 import { Box, Stack } from "@mui/material";
 import Button from "@mui/material/Button";
 import TabPanel from "@mui/lab/TabPanel";
-
 import { useSelector } from "react-redux";
 import { createSelector } from "reselect";
 import { retreivePausedOrders } from "./selector";
@@ -19,6 +18,8 @@ const pausedOrdersRetriever = createSelector(
 export default function PausedOrders() {
   const { pausedOrders } = useSelector(pausedOrdersRetriever);
 
+  /** HANDLERS **/
+
   return (
     <TabPanel value={"1"}>
       <Stack>
@@ -26,7 +27,7 @@ export default function PausedOrders() {
           return (
             <Box key={order._id} className={"order-main-box"}>
               <Box className={"order-box-scroll"}>
-                {order.orderItems?.map((item: OrderItem) => {
+                {order?.orderItems?.map((item: OrderItem) => {
                   const product: Product = order.productData.filter(
                     (ele: Product) => item.productId === ele._id,
                   )[0];
